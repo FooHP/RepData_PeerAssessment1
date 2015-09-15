@@ -90,33 +90,91 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 
 To run the code below you need to replace Dan with yourUserName
 
-```{r}
+
+```r
 if (!file.exists("C:/Users/Dan/RepData_PeerAssessment1/activity.csv")) {
    unzip("C:/Users/Dan/RepData_PeerAssessment1/activity.zip",
    exdir="C:/Users/Dan/RepData_PeerAssessment1")   
 }
-
 ```
 
 **3. Load the Data and required packages **
 
-```{r}
+
+```r
 activity <- read.csv("C:/Users/Dan/RepData_PeerAssessment1/activity.csv",
                      header = TRUE,sep = ",",na.strings = "NA")        
 library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 library(ggplot2)
 head(activity)
+```
+
+```
+##   steps       date interval
+## 1    NA 2012-10-01        0
+## 2    NA 2012-10-01        5
+## 3    NA 2012-10-01       10
+## 4    NA 2012-10-01       15
+## 5    NA 2012-10-01       20
+## 6    NA 2012-10-01       25
+```
+
+```r
 str(activity)
+```
+
+```
+## 'data.frame':	17568 obs. of  3 variables:
+##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
+##  $ date    : Factor w/ 61 levels "2012-10-01","2012-10-02",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
 
 **4. Preprocessing the data **
 
     Ignore the missing values in the dataset by filtering it out
 
-```{r}
+
+```r
 act <-filter(activity,!is.na(steps))
 head(act)
+```
+
+```
+##   steps       date interval
+## 1     0 2012-10-02        0
+## 2     0 2012-10-02        5
+## 3     0 2012-10-02       10
+## 4     0 2012-10-02       15
+## 5     0 2012-10-02       20
+## 6     0 2012-10-02       25
+```
+
+```r
 str(act)
+```
+
+```
+## 'data.frame':	15264 obs. of  3 variables:
+##  $ steps   : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ date    : Factor w/ 61 levels "2012-10-01","2012-10-02",..: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
 
 
@@ -127,32 +185,75 @@ str(act)
 
 i.   Calculate the total number of steps taken per day
 
-```{r}
+
+```r
 by_date <- group_by(act,date)
 a <- summarize(by_date,  Totsteps = sum(steps))
 head(a)
+```
+
+```
+## Source: local data frame [6 x 2]
+## 
+##         date Totsteps
+## 1 2012-10-02      126
+## 2 2012-10-03    11352
+## 3 2012-10-04    12116
+## 4 2012-10-05    13294
+## 5 2012-10-06    15420
+## 6 2012-10-07    11015
+```
+
+```r
 tail(a)
+```
+
+```
+## Source: local data frame [6 x 2]
+## 
+##         date Totsteps
+## 1 2012-11-24    14478
+## 2 2012-11-25    11834
+## 3 2012-11-26    11162
+## 4 2012-11-27    13646
+## 5 2012-11-28    10183
+## 6 2012-11-29     7047
 ```
 
 
 ii.  Make a histogram of the total number of steps taken each day
 
 
-```{r}
+
+```r
 g1 <- ggplot(a, aes(a$Totsteps)) + geom_histogram(binwidth=1000,fill="red",color="black")
 g1 <- g1 + labs(x="Total number of steps taken each day ",y="Frequency ") 
 g1 <- g1 + labs(title="Histogram of the total number of steps taken each day")
 print(g1)
 ```
 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+
 
 iii. Calculate and report the mean and median of the total number of steps taken per day
 
-```{r}
+
+```r
 Avg_tsteps_per_day <- mean(a$Totsteps)
 Avg_tsteps_per_day
+```
+
+```
+## [1] 10766.19
+```
+
+```r
 Med_tsteps_per_day <- median(a$Totsteps)
 Med_tsteps_per_day
+```
+
+```
+## [1] 10765
 ```
 
 
@@ -160,30 +261,76 @@ Med_tsteps_per_day
 ## 2. What is the average daily activity pattern?
 
 
-```{r}
+
+```r
 by_interval <- group_by(act,interval)
 b <- summarize(by_interval,avgsteps=mean(steps))
 head(b)
+```
+
+```
+## Source: local data frame [6 x 2]
+## 
+##   interval  avgsteps
+## 1        0 1.7169811
+## 2        5 0.3396226
+## 3       10 0.1320755
+## 4       15 0.1509434
+## 5       20 0.0754717
+## 6       25 2.0943396
+```
+
+```r
 tail(b)
+```
+
+```
+## Source: local data frame [6 x 2]
+## 
+##   interval  avgsteps
+## 1     2330 2.6037736
+## 2     2335 4.6981132
+## 3     2340 3.3018868
+## 4     2345 0.6415094
+## 5     2350 0.2264151
+## 6     2355 1.0754717
 ```
 
 
 
 i.   Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
-```{r}
+
+```r
 plot(b$interval,b$avgsteps,type="l",main="Time series plot of the 5- minute interval and
      the average number of steps taken",
      xlab="5-minute inverval",
      ylab="Average number of steps taken")
 ```
 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
+
 
 ii.  Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
-```{r}
+
+```r
 b[which(b$avgsteps==max(b$avgsteps)),]
+```
+
+```
+## Source: local data frame [1 x 2]
+## 
+##   interval avgsteps
+## 1      835 206.1698
+```
+
+```r
 max_interval <- b$interval[which(b$avgsteps==max(b$avgsteps))]
 max_interval
+```
+
+```
+## [1] 835
 ```
 The maximum number of steps occur at **8:35 am**
 
@@ -194,9 +341,14 @@ Note : interval = 835 is equivalent to 8:35 am
   i.  Calculate and report the total number of missing values in the dataset 
    (i.e. the total number of rows with NAs)
 
-```{r}
+
+```r
 no_of_NAs <- sum(is.na(activity$steps))
 no_of_NAs
+```
+
+```
+## [1] 2304
 ```
 
   ii. Devise a strategy for filling in all of the missing values in the dataset. The       strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
@@ -208,34 +360,65 @@ This is computed using  mean total number of steps taken per day divide by
 288 (i.e the total number of 5 minute intervals in a day)**
 
   iii. Create a new dataset that is equal to the original dataset but with the missing data filled in.
-```{r}
+
+```r
 c <- which(is.na(activity$steps))         
 actnew <- activity
 actnew[c,1] <- Avg_tsteps_per_day/288    
-```  
+```
 
 
    iv.  Make a histogram of the total number of steps taken each day 
    
-```{r}
+
+```r
 by_date1 <- group_by(actnew,date)
 anew <- summarize(by_date1,  Totsteps = sum(steps))
 head(anew)
+```
+
+```
+## Source: local data frame [6 x 2]
+## 
+##         date Totsteps
+## 1 2012-10-01 10766.19
+## 2 2012-10-02   126.00
+## 3 2012-10-03 11352.00
+## 4 2012-10-04 12116.00
+## 5 2012-10-05 13294.00
+## 6 2012-10-06 15420.00
+```
+
+```r
 g2 <- ggplot(anew, aes(anew$Totsteps)) + geom_histogram(binwidth=1000,fill="blue",color="black")
 g2 <- g2 + labs(x="Total number of steps taken each day ",y="Frequency ") 
 g2 <- g2 + labs(title="Histogram of the total number of steps taken each day")
 g2
 ```
+
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
    
    
         Calculate and report the mean and median total number of steps taken per day. 
         
    
-```{r}
+
+```r
 mean_dailysteps <- mean(anew$Totsteps)
 mean_dailysteps
+```
+
+```
+## [1] 10766.19
+```
+
+```r
 Med_dailysteps <- median(anew$Totsteps)
 Med_dailysteps
+```
+
+```
+## [1] 10766.19
 ```
    
 Do these values differ from the estimates from the first part of the assignment? 
@@ -258,18 +441,29 @@ What is the impact of inputing missing data on the estimates of the total daily 
     
     "weekend" indicating whether a given date is a weekday or weekend day.
     
-```{r}
+
+```r
 actnew <- mutate(actnew,day=weekdays(as.Date(date)))
 wkend <- c("Saturday", "Sunday")
 actnew$daytype <- factor(actnew$day %in% wkend, 
                    levels=c(FALSE, TRUE), labels=c("weekday","weekend"))
 head(actnew)
+```
 
+```
+##     steps       date interval    day daytype
+## 1 37.3826 2012-10-01        0 Monday weekday
+## 2 37.3826 2012-10-01        5 Monday weekday
+## 3 37.3826 2012-10-01       10 Monday weekday
+## 4 37.3826 2012-10-01       15 Monday weekday
+## 5 37.3826 2012-10-01       20 Monday weekday
+## 6 37.3826 2012-10-01       25 Monday weekday
 ```
      
 
 Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). 
-```{r,fig.width=12}
+
+```r
 by_interval_daytype <- group_by(actnew,interval,daytype)
 bnew <- summarize(by_interval_daytype,avgsteps=mean(steps))
 g3 <- ggplot(bnew,aes(x=interval,y=avgsteps))
@@ -277,30 +471,117 @@ g3 <- g3 + geom_line(linetype=1,color="red") + facet_wrap(~daytype,nrow=2,ncol=1
 g3 <- g3 + scale_x_continuous(breaks = seq(0, 2400, 100))
 g3 <- g3 + labs(x="5- minute interval",y="Average number of steps taken")
 print(g3)
+```
 
-```    
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png) 
 
 Below are my further analysis of the weekday and weekend data 
  
-```{r}
+
+```r
 wd <- filter(bnew,daytype=="weekday")
 summary(wd)
+```
+
+```
+##     interval         daytype       avgsteps      
+##  Min.   :   0.0   weekday:288   Min.   :  4.984  
+##  1st Qu.: 588.8   weekend:  0   1st Qu.:  6.907  
+##  Median :1177.5                 Median : 25.762  
+##  Mean   :1177.5                 Mean   : 35.611  
+##  3rd Qu.:1766.2                 3rd Qu.: 49.940  
+##  Max.   :2355.0                 Max.   :207.873
+```
+
+```r
 sum(wd$avgsteps)
+```
+
+```
+## [1] 10255.85
+```
+
+```r
 wd[which(wd$avgsteps==max(wd$avgsteps)),]
+```
+
+```
+## Source: local data frame [1 x 3]
+## Groups: interval
+## 
+##   interval daytype avgsteps
+## 1      835 weekday 207.8732
+```
+
+```r
 activewd <- filter(wd,avgsteps>50)
 head(activewd)
+```
 
+```
+## Source: local data frame [6 x 3]
+## Groups: interval
+## 
+##   interval daytype avgsteps
+## 1      550 weekday 50.07324
+## 2      555 weekday 55.31768
+## 3      605 weekday 63.00657
+## 4      610 weekday 67.89546
+## 5      615 weekday 73.67324
+## 6      620 weekday 62.25101
+```
 
-
-
+```r
 we <- filter(bnew,daytype=="weekend")
 summary(we)
+```
+
+```
+##     interval         daytype       avgsteps      
+##  Min.   :   0.0   weekday:  0   Min.   :  4.673  
+##  1st Qu.: 588.8   weekend:288   1st Qu.:  5.642  
+##  Median :1177.5                 Median : 32.704  
+##  Mean   :1177.5                 Mean   : 42.366  
+##  3rd Qu.:1766.2                 3rd Qu.: 70.798  
+##  Max.   :2355.0                 Max.   :157.798
+```
+
+```r
 sum(we$avgsteps)
+```
+
+```
+## [1] 12201.52
+```
+
+```r
 we[which(we$avgsteps==max(we$avgsteps)),]
+```
+
+```
+## Source: local data frame [1 x 3]
+## Groups: interval
+## 
+##   interval daytype avgsteps
+## 1      915 weekend 157.7978
+```
+
+```r
 activewe <- filter(we,avgsteps>50)
 head(activewe)
+```
 
-
+```
+## Source: local data frame [6 x 3]
+## Groups: interval
+## 
+##   interval daytype avgsteps
+## 1      805 weekend 53.79782
+## 2      810 weekend 76.92282
+## 3      815 weekend 73.73532
+## 4      820 weekend 71.67282
+## 5      825 weekend 61.29782
+## 6      830 weekend 99.11032
 ```
 
  
