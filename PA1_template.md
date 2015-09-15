@@ -65,7 +65,7 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 
 ##  Loading and preprocessing the data
 
-1. Go to the GitHub repository  for this assignment : 
+**Go to the GitHub repository  for this assignment :** 
 
     https://github.com/FooHP/RepData_PeerAssessment1
   
@@ -84,9 +84,9 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
    This will clone the repository into your current directory.
    
    
-2. Unzip the dataset, activity.zip, if the unzipped file does not exist 
+**Unzip the dataset, activity.zip, if the unzipped file does not exist** 
 
-To run the code below you need to replace Dan with yourUserName
+ To run the code below you need to replace Dan with yourUserName
 
 
 ```r
@@ -96,7 +96,7 @@ if (!file.exists("C:/Users/Dan/RepData_PeerAssessment1/activity.csv")) {
 }
 ```
 
-3. Load the Data and required packages 
+**Load the Data and required packages** 
 
 
 ```r
@@ -143,8 +143,8 @@ str(activity)
 ##  $ date    : Factor w/ 61 levels "2012-10-01","2012-10-02",..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
-
-4. Preprocessing the data 
+ 
+**Preprocessing the data** 
 
     Ignore the missing values in the dataset by filtering it out
 

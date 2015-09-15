@@ -261,10 +261,10 @@ hr {
 
 <h2>Loading and preprocessing the data</h2>
 
-<ol>
-<li><p>Go to the GitHub repository  for this assignment : </p>
+<p><strong>Go to the GitHub repository  for this assignment :</strong> </p>
 
-<p><a href="https://github.com/FooHP/RepData_PeerAssessment1">https://github.com/FooHP/RepData_PeerAssessment1</a></p>
+<pre><code>https://github.com/FooHP/RepData_PeerAssessment1
+</code></pre>
 
 <p>This repository contains the dataset, activity.zip</p>
 
@@ -276,11 +276,12 @@ hr {
 
 <p>Make a local copy on your computer using the following command :</p>
 
-<p>$ git clone <a href="https://github.com/yourUserNameHere/RepData_PeerAssessment1.git">https://github.com/yourUserNameHere/RepData_PeerAssessment1.git</a></p>
+<pre><code>  $ git clone https://github.com/yourUserNameHere/RepData_PeerAssessment1.git
+</code></pre>
 
-<p>This will clone the repository into your current directory.</p></li>
-<li><p>Unzip the dataset, activity.zip, if the unzipped file does not exist </p></li>
-</ol>
+<p>This will clone the repository into your current directory.</p>
+
+<p><strong>Unzip the dataset, activity.zip, if the unzipped file does not exist</strong> </p>
 
 <p>To run the code below you need to replace Dan with yourUserName</p>
 
@@ -290,9 +291,7 @@ hr {
 }
 </code></pre>
 
-<ol>
-<li>Load the Data and required packages </li>
-</ol>
+<p><strong>Load the Data and required packages</strong> </p>
 
 <pre><code class="r">activity &lt;- read.csv(&quot;C:/Users/Dan/RepData_PeerAssessment1/activity.csv&quot;,
                      header = TRUE,sep = &quot;,&quot;,na.strings = &quot;NA&quot;)        
@@ -333,11 +332,10 @@ head(activity)
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 </code></pre>
 
-<ol>
-<li><p>Preprocessing the data </p>
+<p><strong>Preprocessing the data</strong> </p>
 
-<p>Ignore the missing values in the dataset by filtering it out</p></li>
-</ol>
+<pre><code>Ignore the missing values in the dataset by filtering it out
+</code></pre>
 
 <pre><code class="r">act &lt;-filter(activity,!is.na(steps))
 head(act)
