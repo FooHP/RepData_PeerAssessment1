@@ -1,6 +1,5 @@
 
----
-# Title: Reproducible Research Project Assignment 1
+# Reproducible Research Project Assignment 1
 
   Author: Foo Hooi Ping
   
@@ -10,7 +9,6 @@
     html_document:
       keep_md: true
       
----
 
 ## Introduction 
 
@@ -67,7 +65,7 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 
 ##  Loading and preprocessing the data
 
-**1. Go to the GitHub repository  for this assignment : **
+1. Go to the GitHub repository  for this assignment : 
 
     https://github.com/FooHP/RepData_PeerAssessment1
   
@@ -86,7 +84,7 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
    This will clone the repository into your current directory.
    
    
-**2. Unzip the dataset, activity.zip, if the unzipped file does not exist **
+2. Unzip the dataset, activity.zip, if the unzipped file does not exist 
 
 To run the code below you need to replace Dan with yourUserName
 
@@ -98,7 +96,7 @@ if (!file.exists("C:/Users/Dan/RepData_PeerAssessment1/activity.csv")) {
 
 ```
 
-**3. Load the Data and required packages **
+3. Load the Data and required packages 
 
 ```{r}
 activity <- read.csv("C:/Users/Dan/RepData_PeerAssessment1/activity.csv",
@@ -109,7 +107,7 @@ head(activity)
 str(activity)
 ```
 
-**4. Preprocessing the data **
+4. Preprocessing the data 
 
     Ignore the missing values in the dataset by filtering it out
 
@@ -241,15 +239,15 @@ Med_dailysteps
 Do these values differ from the estimates from the first part of the assignment? 
 What is the impact of inputing missing data on the estimates of the total daily         number of steps?
 
-**When the overall mean number of steps taken per 5-minute interval is used to fill up the missing NAs :**
+When the overall mean number of steps taken per 5-minute interval is used to fill up the missing NAs :
 
-**The mean total number of steps taken per day remains the same at 10766.19**
+  The mean total number of steps taken per day remains the same at 10766.19
 
-**The median total number of steps taken per day has increased slightly from **
+  The median total number of steps taken per day has increased slightly from 
 
-**10765 to 10766.19 (i.e the median is now the same as the mean total number of **
+  10765 to 10766.19 (i.e the median is now the same as the mean total number of 
 
-**steps taken per day) as more values are closer or equal to the mean **
+  steps taken per day) as more values are closer or equal to the mean 
 
 
 ## 4. Are there differences in activity patterns between weekdays and weekends?

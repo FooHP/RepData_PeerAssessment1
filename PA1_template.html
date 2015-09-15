@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Title: Reproducible Research Project Assignment 1</title>
+<title>Reproducible Research Project Assignment 1</title>
 
 <script type="text/javascript">
 window.onload = function() {
@@ -201,9 +201,7 @@ hr {
 </head>
 
 <body>
-<hr/>
-
-<h1>Title: Reproducible Research Project Assignment 1</h1>
+<h1>Reproducible Research Project Assignment 1</h1>
 
 <p>Author: Foo Hooi Ping</p>
 
@@ -212,8 +210,6 @@ hr {
 <p>Output: 
     html_document:
       keep_md: true</p>
-
-<hr/>
 
 <h2>Introduction</h2>
 
@@ -265,10 +261,10 @@ hr {
 
 <h2>Loading and preprocessing the data</h2>
 
-<p>*<em>1. Go to the GitHub repository  for this assignment : *</em></p>
+<ol>
+<li><p>Go to the GitHub repository  for this assignment : </p>
 
-<pre><code>https://github.com/FooHP/RepData_PeerAssessment1
-</code></pre>
+<p><a href="https://github.com/FooHP/RepData_PeerAssessment1">https://github.com/FooHP/RepData_PeerAssessment1</a></p>
 
 <p>This repository contains the dataset, activity.zip</p>
 
@@ -280,12 +276,11 @@ hr {
 
 <p>Make a local copy on your computer using the following command :</p>
 
-<pre><code>  $ git clone https://github.com/yourUserNameHere/RepData_PeerAssessment1.git
-</code></pre>
+<p>$ git clone <a href="https://github.com/yourUserNameHere/RepData_PeerAssessment1.git">https://github.com/yourUserNameHere/RepData_PeerAssessment1.git</a></p>
 
-<p>This will clone the repository into your current directory.</p>
-
-<p>*<em>2. Unzip the dataset, activity.zip, if the unzipped file does not exist *</em></p>
+<p>This will clone the repository into your current directory.</p></li>
+<li><p>Unzip the dataset, activity.zip, if the unzipped file does not exist </p></li>
+</ol>
 
 <p>To run the code below you need to replace Dan with yourUserName</p>
 
@@ -295,7 +290,9 @@ hr {
 }
 </code></pre>
 
-<p>*<em>3. Load the Data and required packages *</em></p>
+<ol>
+<li>Load the Data and required packages </li>
+</ol>
 
 <pre><code class="r">activity &lt;- read.csv(&quot;C:/Users/Dan/RepData_PeerAssessment1/activity.csv&quot;,
                      header = TRUE,sep = &quot;,&quot;,na.strings = &quot;NA&quot;)        
@@ -336,10 +333,11 @@ head(activity)
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 </code></pre>
 
-<p>*<em>4. Preprocessing the data *</em></p>
+<ol>
+<li><p>Preprocessing the data </p>
 
-<pre><code>Ignore the missing values in the dataset by filtering it out
-</code></pre>
+<p>Ignore the missing values in the dataset by filtering it out</p></li>
+</ol>
 
 <pre><code class="r">act &lt;-filter(activity,!is.na(steps))
 head(act)
@@ -561,15 +559,15 @@ Med_dailysteps
 <p>Do these values differ from the estimates from the first part of the assignment? 
 What is the impact of inputing missing data on the estimates of the total daily         number of steps?</p>
 
-<p><strong>When the overall mean number of steps taken per 5-minute interval is used to fill up the missing NAs :</strong></p>
+<p>When the overall mean number of steps taken per 5-minute interval is used to fill up the missing NAs :</p>
 
-<p><strong>The mean total number of steps taken per day remains the same at 10766.19</strong></p>
+<p>The mean total number of steps taken per day remains the same at 10766.19</p>
 
-<p>*<em>The median total number of steps taken per day has increased slightly from *</em></p>
+<p>The median total number of steps taken per day has increased slightly from </p>
 
-<p>*<em>10765 to 10766.19 (i.e the median is now the same as the mean total number of *</em></p>
+<p>10765 to 10766.19 (i.e the median is now the same as the mean total number of </p>
 
-<p>*<em>steps taken per day) as more values are closer or equal to the mean *</em></p>
+<p>steps taken per day) as more values are closer or equal to the mean </p>
 
 <h2>4. Are there differences in activity patterns between weekdays and weekends?</h2>
 
