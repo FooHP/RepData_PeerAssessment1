@@ -205,7 +205,7 @@ hr {
 
 <p>Author: Foo Hooi Ping</p>
 
-<p>Date: Saturday, September 12, 2015</p>
+<p>Date: Thursday, September 17, 2015</p>
 
 <p>Output: 
     html_document:
@@ -243,10 +243,8 @@ hr {
 <ol>
 <li><p>Downloaded from the course web site:</p>
 
-<p><a href="https://d396qusza40orc.cloudfront.net/repdata%Fdata%2Factivity.zip">https://d396qusza40orc.cloudfront.net/repdata%Fdata%2Factivity.zip</a></p></li>
-<li><p>Found in the GitHub repository  for this assignment :</p>
-
-<p><a href="https://github.com/FooHP/RepData_PeerAssessment1/blob/master/activity.zip">https://github.com/FooHP/RepData_PeerAssessment1/blob/master/activity.zip</a></p></li>
+<p><a href="https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip">https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip</a></p></li>
+<li><p>Found in <a href="https://github.com/rdpeng/RepData_PeerAssessment1">GitHub repository created for this assignment</a></p></li>
 </ol>
 
 <p>The variables included in this dataset are:</p>
@@ -263,8 +261,7 @@ hr {
 
 <p><strong>Go to the GitHub repository  for this assignment :</strong> </p>
 
-<pre><code>https://github.com/FooHP/RepData_PeerAssessment1
-</code></pre>
+<p><a href="https://github.com/rdpeng/RepData_PeerAssessment1">https://github.com/rdpeng/RepData_PeerAssessment1</a></p>
 
 <p>This repository contains the dataset, activity.zip</p>
 
@@ -296,21 +293,7 @@ hr {
 <pre><code class="r">activity &lt;- read.csv(&quot;C:/Users/Dan/RepData_PeerAssessment1/activity.csv&quot;,
                      header = TRUE,sep = &quot;,&quot;,na.strings = &quot;NA&quot;)        
 library(dplyr)
-</code></pre>
-
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
-
-<pre><code class="r">library(ggplot2)
+library(ggplot2)
 head(activity)
 </code></pre>
 
@@ -420,6 +403,8 @@ Med_tsteps_per_day
 
 <pre><code>## [1] 10765
 </code></pre>
+
+<p>The mean is 10766.19 and the median is 10765</p>
 
 <h2>2. What is the average daily activity pattern?</h2>
 
@@ -537,8 +522,7 @@ g2
 
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAA5FBMVEUAAAAAADoAAGYAAP8AOmYAOpAAZrY6AAA6ADo6AGY6OgA6OmY6OpA6ZrY6kJA6kNtmAABmADpmAGZmOgBmOpBmZgBmZjpmZmZmkJBmtrZmtv9/f39/f5V/f6t/lcF/q9aQOgCQOjqQOmaQZgCQkDqQkGaQtpCQ27aQ2/+Vf3+Vweurf6urlZWr1v+2ZgC2Zjq225C2/7a2/9u2///BlX/BlZXBlavBwdbB6//Wq3/W///bkDrb25Db29vb/7bb///l5eXrwZXr///y8vL/tmb/1qv/25D//7b//9b//9v//+v///+6ibuHAAAACXBIWXMAAAsSAAALEgHS3X78AAASSUlEQVR4nO3cDX+b1hXHcZzNdrN1s5N2aye1jbOtnZs22oP7kFjbvDSyFJn3/3527+WCQEiAOBx0Mb/zSR0Zrv4c+OoCcuVEMTXKio7dAHWcAn6kBfxIC/iRFvAjLeBHWsCPtIAfaQE/0gJ+pAX8SAv4kRbwIy3gR1rAj7SAH2kBP9I6Cvx/lJ7/nwZjuqmadN2Nd1La8Ktn1+br8ulN8sDW+uqiXdYiii7881eXk9LqfG7+8WbLe5vckbZz0zvSd1Rh47XRtc0sntwcGNGkeoPfLGoNPzvLnt83vN/0jvQdBXy8NePnUXRyvb6KorPYfj29s7sZnXz95Gb98muzankeRdEkXn70tRmysMNc+bGzKLKHwD1/dfn5uXlCts6PSnOTxz7Ow6+efeOe4g6sOZi5rbi0NNukJd2UNx3v2AMXa1e6VZtG0o2brS3Pi6NPrgv7lQ61f9sh6a65ppPDkw5xr7954UXYtvqEty9d85+dEOsr0/3s9G51eWF2yi5zu2z2fmZIzIFa2GP3kT+QydjijDdZMytsJtc8ld/kZmcFE5fC+6dk8JutuFXzpDOb5rrZtenCHiRj0+f6VZsG/cYvJ8vzSXH0bNNvsiwbmt+1/K6mQ+wG1leHnkN2ljr8ZWTrSQofJ3vjzv1mdxZ2B9ND7sqRJDPFn/TSsaVT/SI5EumhyOdmeYscfPKUDXy2FbfIduPTsmdvbzq3B+nYwnPjrMFs45d/Mq/t4mg/NN97ti+bPrMhabLvvXDZbF99znh7apv4w2bBzQN32nJzyO2/fZnYk/C1e56HT8fugp+7l1Vy45XPTY59ErcPfrMVN8J249OySVXedLYH6dj0uX5V2ki28Ut32s5G51Q3vSdD/YmrMMRdCZJXn7vamD66OdP3fVc/c5fIPfBm5y62SGxEJbw/J6fL8/Bp3AHw2Rl+D3xuD9Kx6XP9qk2DfuPJWS0bva0ab3a7Aj4dYh7/q5szfe9v5zxK+VQ/8Ye5DF97qve1fapP4xrAb52uM/jtTef2IB2bPjftIM69AhfZhbswOn8ejze7XXGqT4eY6M+7OdP3fnNnDnf5JiyFd7ev5ua+CL/75m7izxRm+WIz0fK5adwWvB2yvtqCT28Vk7QMftfNXbYHydj0uX5V2ki2cbNVl5iO3qimy/JD52dxcciZOzzpEHt96OZM3++MnyVvW+bbb+fsIbeH2r5r+qe5DS7CZ2PTaTe3b+cm6RSIsvc++Vz72MdtwbtNfvO0eKr/xr2TStM2N87bm97aA/fu8DM/JMou8vmNu/vx5A1m7r1kFm5790PtezbXXnGIezuXDontLWknFcLP6he5C/Xg6vCf0Iiqo3v6o8Mv3Pxq+ZO8IKpn+HlXx+rYM34eFX4KPrzqFX553tnJ8RD4/zWpZqNsvW88UiV0bI0Cr5gZcqPAK2aG3CjwipkhNwq8YmbIjQKvmBlyo8ArZobcKPCKmSE3CrxiZsiNAq+YGXKjwCtmhtwo8IqZITcKvGJmyI0Cr5gZcqPAK2aG3CjwipkhNwq8YmbIjQKvmBlyo8ArZobcKPCKmSE3CryvqFTyTODFbeqHRr/aqkieCby4Tf1Q4IEHHnhZJvDiNvVDgQceeOBlmcCL29QPBR544IGXZT5S+PdNqtmoA0sjtAzfQahGox1lMuN9MeOBBx54WSbw4jb1Q4EHHnjgZZnAi9vUDwUeeOCBl2UCL25TPxR44IEHXpYJvLhN/VDggQceeFkm8OI29UOBBx544GWZwIvb1A8FHnjggZdlAi9uUz8UeOCBB16WCby4Tf1Q4IEHHnhZJvDiNvVDgQceeOBlmcCL29QPBR544IGXZQIvblM/FHjggQdelgm8uE39UOCBBx54WSbw4jb1Q4EHHnjgZZnAi9vUDwUeeOCBl2UCL25TPxR44IEHXpYJvLhN/VDggQceeFnm44D/8N1tHL+dTr94A3zTegzw99Mvb+OHH99slvTZpn4o8Lvr4eeHn27jD99/O31hv52a2n9yGGKV4Y/dUa9VsbcW/t7M+nev/YI+X5/6ocz4Knhb96+Ab1qPBt6iM+MbZz4eeHtXn0544OvrUcCXqs829UOBBx544GWZwIvb1A8FHnjggZdlAi9uUz8UeOCBB16WCby4Tf1Q4IEHHnhZJvDiNvVDgQceeOBlmcCL29QPBR544IGXZQIvblM/FHjggQdelgm8uE39UOCBBx54WSbw4jb1Q4EHHnjgZZnAi9vUDwUeeOCBl2UCL25TPxR44IEHXpYJvLhN/VDggQceeFkm8OI29UOBBx544GWZwIvb1A8FHnjggZdlAi9uUz8UeOCBB16WCby4Tf1Q4IEHHnhZJvDiNvVDgQce+Op636SajTqwNELL8B2EajTaUSYz3hczHnjggZdlAi9uUz8UeOCBB16WCby4Tf1Q4IEHHnhZJvDiNvVDgQceeOBlmcCL29QPBR544IGXZQIvblM/FHjggQdelgm8uE39UOCBBx54WSbw4jb1Q4EHHnjgZZnAi9vUDwUeeOCBl2UCL25TPxR44IEHXpYJvLhN/VDggQceeFkm8OI29UOBBx544GWZwIvb1A8FHnjggZdlAi9uUz8UeOCBB16WCby4Tf1Q4IEHHnhZJvDiNvVDgQceeOBlmcCL29QPBT5Xq8sz4AWZg4WP40UUnVwD3zJzwPCm1ldRNDF/f/juNo7fTr94A3zjGi788tzO+NXzm/h++uVtfP/VL+YP8E1rqPCry9M7//Dh54efbuN3r5KJH09N7bkCDLTK8MfuqNeq2FsH/9r9lVSfr0/9UGZ8vhbm6j73d3eFGQ98oxoq/OqZNV8+vUnhucYflDlY+PWVvZ1fJBd6d47nrv7ojfZyql9dRlH05CbeWX22qR8KfOPqs039UOCBB97+xHb/ub7PNvVDgc/V6nLCjBdkDhf++Z77OuCb1VDh49kF8ILMwcK7d3Nc41tnDha+uvpsUz8UeOCBtx/COP3vsz0fwemzTf1Q4AvuF8uP7xbZ/5QH/rDMwcKbt3MGft+buj7b1A8FvjTj58z4lpmDhXcftIz2uANfX4OFr6w+29QPBR544PnJnSxzsPBJzff8wL7PNvVDgS8Vb+faZg4cfsGpvmXmYOH9NX7PpzH6bFM/FPjG1Web+qHAAw+8P9XveUPXZ5v6ocDna36WfgG+ReZg4ZM3cryda5s5WPj11QUzXpA5WPjk/87t+weQ+mxTPxT4xtVnm/qhwAMPPB+2lGUOFp4PW8oyBwvPhy1lmYOF58OWsszBwvNhS1nmcOErq8829UOBzxW/Hy/LHCz8+uW+f7ka+EY1VHg+ZSvLHCx8dfXZpn4o8MCPHb761g74BjVc+OXHe97EA9+kgJe2qR8KPPCjh6/8jC3wDWqY8HXVZ5v6ocADDzzwssxHCv++STUbdWBphJbhOwjVaLSjTGa8L2Y88MADL8sEXtymfijwwAMPvCwTeHGb+qHAAw888LJM4MVt6ocCDzzwwMsygRe3qR8KPPDAAy/LBF7cpn4o8MADD7wsE3hxm/qhwAMPPPCyTODFbeqHAg888MDLMoEXt6kfCjzwwAMvywRe3KZ+KPDAAw+8LBN4cZv6ocAD7+Hr6yiNAt9taBm+fsFRGgW+21DggQceeOCBBx544HtrUz8UeOCBBx544IEHHvje2tQPBR544IEHHnjggQe+tzb1Q4EHHnjggff1djr94g3wo4N/+PHN5ps+29QPBb6qPnz/7fSFfTA1VXNyCKrKn5AtjWgB38FmQ6maxu6/vI3fvfbf9Pn6lIbWz1aVGa/xYf2j3dzdvwJ+dPAWnRk/Qnh7V59OeOBLGaV6PPD56rNNaSjwpRjg940AHnjggQce+FJGqYCXtikNBb4UA/y+EcADDzzwwANfyigV8NI2paHAl2KA3zcCeOCBBx544EsZpQJe2qY0FPhSDPD7RgAP/J4Ftf+4LfDSNqWhOvAtQusarS/gDwkFvhQD/L4RwAMPPPDAAw+8fpvSUOBLMcDvGwE88MADDzzwwOu3KQ0FvhQD/L4RwAMPPPDAAw+8fpvSUOBLMcDvGwE88MADDzzwwOu3KQ0FvhQD/L4RwAMPPPDAAw+8fpvSUOBLMcDvGwE88MADDzzwwOu3KQ0FvhTTHv59k2o26sA6PLQsUD+ixYLDN3t4dXREmfF7R7RYUB9a12h9HX/G99mmNBT4Ugzw+0YADzzwwAMPPPD6bUpDgS/FAL9vBPDAAw888M0aqP/3Xhu1eWBoeUBJoH5EiwX1ofK9Hwq8wq7Xh3aiqLJAvvfAV4QG41zXaIu9B74iNBjnukZb7D3wFaHBONc12mLvga8IDca5rtEWew98RWgwznWNtth74CtCg3Gua7TF3gNfERqMc12jLfYe+IrQYJzrGm2x98BXhAbjXNdoi70HviI0GOe6RlvsPfAVocE41zXaYu+BrwgNxrmu0RZ7D3xFaDDOdY222HvgK0KDca5rtMXeA18RGoxzXaMt9h74itBgnOsabbH3wFeEBuNc12iLvQe+IjQY57pGW+w98BWhwTjXNdpi74GvCA3Gua7RFnv/aODLH02tr1KoxkdmVRbU7nz9Ea2vgcArHOBgnEsLDj48DY7ovgzgA1oAPPDAd3+Ag3EuLQAeeOC7P8DBOJcWAA888N0f4GCcSwuABx747g9wMM6lBcADD3z3BzgY59IC4IEHvvsDHIxzaQHwwAPf/QEOxrm0AHjgge/+AAfjXFowVPi30y/eAC9YMFD4+69+MX+Ab79goPDvXsUfvrs1D6amdg1o88lJSr2qVZvAv44ffro9ZMYH8o8YHycz5EZbznjgjxZ6FPjDr/FjO576ocf5hYqD7+rHdjz1QwfymzRjO576ocB3Gzq2RoFXzAy5UeAVM0NuFHjFzJAbBV4xM+RGgVfMDLlR4BUzQ24UeMXMkBsFXjEz5EaBV8wMuVHgFTNDbhR4xcyQGwVeMTPkRoFXzAy5UQF8o9r5ybwQQ8fdKPDhhwIffuZwGgU+/NCBwFPDKOBHWsCPtIAfaQE/0uoYPv/7F/IsG5Yk5r+2L/fbYOVAWawP7bDXhx+m069+6bzRYnULX/iNK2E9/PgmS8z/EXQ3/fJ2R6As1oV22+v9C2P8uutGt6pb+MLvWArrw/ffTl/4xPzX1oEPP9tf/C0HimKT0M57jd+97rjR7eoYPv9b1cK6NzPJ7L5LzH8VRDr4UqAw1j63817NpO+80WKFO+Nt3b/q9BWvMOPjzKLLXt++iLtvtFjhXuPvX9kzSKfXODc5u750utBOe3344XW8644h4Gt813f1r7q9q3WTs+ubZR/aYa9v7b8782pQd/XUYAr4kRbwIy3gR1rAj7TCh19fuX+y7/Qu+Xb59CbefrS7ZpOqzIvsm4qczar1y+tG3Zby1lf72zhmhQ8fFw9lJ/CFpwIfbCWHcnUZPblxX5bnUTTxS5cf/yX9xvy3fvl1FF0sIjuhZ5/ZFcnT4uVvP3mSDzmxjmacT0wGrZ7/1a1wy9PBycYM/Prq9M6HJduM0yGmi/N0WyfXy6d/yK399ScTv9a8EJcf3x3pEJZqQPCzi3hxemcer55d20Ue/jxd7OCvzsySM/eMWbLUPG1uFyYUWYh5vHp+41Zlg1aXp3cL8ypIlicb9hsz8LOLOAtzKT7PPtEPMrN7cfrvwtpFNPFrF+abi907eIQaDrzlMIfQn0jNdx4+Ec9m/LU7K9tjbU/1M3fUs8HFELsqznTNqtWlm9p+eZydtc2q9cvfXCTP8GGbCJu5oyO/NX+qt+mf3v298fVCvYYDb78YFfd4Zs/FdfD2KBv4S3NneJK+XvIh7gR94iajH+TEZxO/PN2w29j66vef3sW5sOzyE7mxSUfuTL5Zmzx9kka8/NunwZzpBwS/max2Ym5O9VUz3kw3Px93zXhb/uLhJ+2z6/QuLjlXbzZmFs8v4lzYZk7bv3Z0FGcz3q+N55+Fc6YfEPzm8uyO7EfXhcNszeZPivDZ5Tu7qhev8RZ3kd0ILOyt25n9yy9Pwv3G7M2dyZ3lbyiKeXbQlRX+R3FtNPFr3X/B1IDgkxvo9dWTm3lkb5aL88ss+/3zIvxn7iSc3MKn8P623LtEaWIyaPXsj5vzth2w2ZgNTa4JPiw9hSRvEJJB6V19tnZ95Rb7tes/V7//7LUGAd9Xbe7qVGr5O830Awv4XOnCz08COtMDP9YCfqQF/EgL+JEW8CMt4EdawI+0gB9p/R9FkL4Ku1L1BwAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-12"/> </p>
 
-<pre><code>    Calculate and report the mean and median total number of steps taken per day. 
-</code></pre>
+<p>Calculate and report the mean and median total number of steps taken per day. </p>
 
 <pre><code class="r">mean_dailysteps &lt;- mean(anew$Totsteps)
 mean_dailysteps
@@ -557,22 +541,17 @@ Med_dailysteps
 <p>Do these values differ from the estimates from the first part of the assignment? 
 What is the impact of inputing missing data on the estimates of the total daily         number of steps?</p>
 
-<p>When the overall mean number of steps taken per 5-minute interval is used to fill up the missing NAs :</p>
+<p><strong>When the overall mean number of steps taken per 5-minute interval is used to fill up the missing NAs:</strong></p>
 
-<p>The mean total number of steps taken per day remains the same at 10766.19</p>
-
-<p>The median total number of steps taken per day has increased slightly from </p>
-
-<p>10765 to 10766.19 (i.e the median is now the same as the mean total number of </p>
-
-<p>steps taken per day) as more values are closer or equal to the mean </p>
+<p><strong>The mean total number of steps taken per day remains the same at 10766.19 .
+The median total number of steps taken per day has increased slightly from 
+10765 to 10766.19 (i.e the median is now the same as the mean total number of 
+steps taken per day) as more values are closer or equal to the mean .</strong></p>
 
 <h2>4. Are there differences in activity patterns between weekdays and weekends?</h2>
 
-<pre><code>i. Create a new factor variable in the dataset with two levels - &quot;weekday&quot; and
-
-&quot;weekend&quot; indicating whether a given date is a weekday or weekend day.
-</code></pre>
+<p>Create a new factor variable in the dataset with two levels - &ldquo;weekday&rdquo; and<br/>
+    &ldquo;weekend&rdquo; indicating whether a given date is a weekday or weekend day.</p>
 
 <pre><code class="r">actnew &lt;- mutate(actnew,day=weekdays(as.Date(date)))
 wkend &lt;- c(&quot;Saturday&quot;, &quot;Sunday&quot;)

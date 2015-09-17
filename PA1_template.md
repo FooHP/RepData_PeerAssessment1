@@ -3,7 +3,7 @@
 
   Author: Foo Hooi Ping
   
-  Date: Saturday, September 12, 2015
+  Date: Thursday, September 17, 2015
   
   Output: 
     html_document:
@@ -42,13 +42,12 @@ The data for this assignment can be :
 
 1. Downloaded from the course web site:
 
-    https://d396qusza40orc.cloudfront.net/repdata%Fdata%2Factivity.zip
+    <https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip>
     
     
 
-2. Found in the GitHub repository  for this assignment :
-
-    https://github.com/FooHP/RepData_PeerAssessment1/blob/master/activity.zip
+2. Found in [GitHub repository created for this assignment](https://github.com/rdpeng/RepData_PeerAssessment1)
+    
     
   
 The variables included in this dataset are:
@@ -67,7 +66,7 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 
 **Go to the GitHub repository  for this assignment :** 
 
-    https://github.com/FooHP/RepData_PeerAssessment1
+<https://github.com/rdpeng/RepData_PeerAssessment1>
   
    This repository contains the dataset, activity.zip
    
@@ -103,22 +102,6 @@ if (!file.exists("C:/Users/Dan/RepData_PeerAssessment1/activity.csv")) {
 activity <- read.csv("C:/Users/Dan/RepData_PeerAssessment1/activity.csv",
                      header = TRUE,sep = ",",na.strings = "NA")        
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-## 
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-## 
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 library(ggplot2)
 head(activity)
 ```
@@ -254,7 +237,7 @@ Med_tsteps_per_day
 ## [1] 10765
 ```
 
-
+The mean is 10766.19 and the median is 10765
 
 ## 2. What is the average daily activity pattern?
 
@@ -396,8 +379,7 @@ g2
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
    
-   
-        Calculate and report the mean and median total number of steps taken per day. 
+Calculate and report the mean and median total number of steps taken per day. 
         
    
 
@@ -422,21 +404,17 @@ Med_dailysteps
 Do these values differ from the estimates from the first part of the assignment? 
 What is the impact of inputing missing data on the estimates of the total daily         number of steps?
 
-When the overall mean number of steps taken per 5-minute interval is used to fill up the missing NAs :
+**When the overall mean number of steps taken per 5-minute interval is used to fill up the missing NAs:**
 
-  The mean total number of steps taken per day remains the same at 10766.19
-
-  The median total number of steps taken per day has increased slightly from 
-
-  10765 to 10766.19 (i.e the median is now the same as the mean total number of 
-
-  steps taken per day) as more values are closer or equal to the mean 
+**The mean total number of steps taken per day remains the same at 10766.19 .
+The median total number of steps taken per day has increased slightly from 
+10765 to 10766.19 (i.e the median is now the same as the mean total number of 
+steps taken per day) as more values are closer or equal to the mean .**
 
 
 ## 4. Are there differences in activity patterns between weekdays and weekends?
 
-    i. Create a new factor variable in the dataset with two levels - "weekday" and
-    
+Create a new factor variable in the dataset with two levels - "weekday" and     
     "weekend" indicating whether a given date is a weekday or weekend day.
     
 
@@ -460,6 +438,7 @@ head(actnew)
      
 
 Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). 
+
 
 ```r
 by_interval_daytype <- group_by(actnew,interval,daytype)
